@@ -3,7 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
-      yellowbright: "FFF6D6",
+      'yellowbright': '#FFF6D6',
     },
     extend: {},
   },
