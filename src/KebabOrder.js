@@ -11,7 +11,7 @@ function KebabOrder(props) {
       <p>{kebab.oignon}</p>
       <p>{kebab.sauces}</p>
       <button className="title_block" onClick={() => deleteKebab(1)}>
-        Supprimer Commande
+        Supprimer
       </button>
     </div>
   );

@@ -1,13 +1,14 @@
 import { useState } from "react";
-//import { pains, viandes, sauces, crudites } from "./orders";
+import { ingredients } from "./orders";
 
+/*
 function BurgerForm(props) {
   const [pain, setPain] = useState("");
   const [viande, setViande] = useState("");
   const [salade, setSalade] = useState("");
   const [tomate, setTomate] = useState("");
   const [oignon, setOignon] = useState("");
-  const [sauces, setSauces] = useState([""]);
+  const [sauces, setSauces] = useState("");
   const { onSubmit } = props;
 
   const handleSubmit = (event) => {
@@ -30,7 +31,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="pain"
           value="Pain"
-          onChange={(e) => setPain(e.target.value)}
+          onClick={(e) => setPain(e.target.value)}
         />
         <label for="galette">Galette</label>
         <br />
@@ -38,7 +39,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="galette"
           value="Galette"
-          onChange={(e) => setPain(e.target.value)}
+          defaultChecked={(e) => setPain(e.target.value)}
         />
         <label for="baguette">Baguette</label>
         <br />
@@ -46,7 +47,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="baguette"
           value="Baguette"
-          onChange={(e) => setPain(e.target.value)}
+          onClick={(e) => setPain(e.target.value)}
         />
       </div>
       <div>
@@ -56,7 +57,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="viande"
           value="Viande"
-          onChange={(e) => setViande(e.target.value)}
+          onClick={(e) => setViande(e.target.value)}
         />
         <label for="tofu">Tofu</label>
         <br />
@@ -64,7 +65,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="tofu"
           value="Tofu"
-          onChange={(e) => setViande(e.target.value)}
+          onClick={(e) => setViande(e.target.value)}
         />
       </div>
       <div>
@@ -74,7 +75,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="salade"
           value="Salade"
-          onChange={(e) => setSalade(e.target.value)}
+          onClick={(e) => setSalade(e.target.value)}
         />
       </div>
       <div>
@@ -84,7 +85,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="tomate"
           value="Tomate"
-          onChange={(e) => setTomate(e.target.value)}
+          onClick={(e) => setTomate(e.target.value)}
         />
       </div>
       <div>
@@ -94,7 +95,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="oignon"
           value="Oignon"
-          onChange={(e) => setOignon(e.target.value)}
+          onClick={(e) => setOignon(e.target.value)}
         />
       </div>
       <div>
@@ -104,7 +105,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="blanche"
           value="Blanche"
-          onChange={(e) => setSauces([e.target.value])}
+          onClick={(e) => setSauces([e.target.value])}
         />
         <label for="andalouse">Andalouse</label>
         <br />
@@ -112,7 +113,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="andalouse"
           value="Andalouse"
-          onChange={(e) => setSauces([e.target.value])}
+          onClick={(e) => setSauces([e.target.value])}
         />
         <label for="harissa">Harissa</label>
         <br />
@@ -120,7 +121,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="harissa"
           value="Harissa"
-          onChange={(e) => setSauces([e.target.value])}
+          onClick={(e) => setSauces([e.target.value])}
         />
         <label for="BBQ">BBQ</label>
         <br />
@@ -128,7 +129,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="BBQ"
           value="BBQ"
-          onChange={(e) => setSauces([e.target.value])}
+          onClick={(e) => setSauces([e.target.value])}
         />
         <label for="ketchup">Ketchup</label>
         <br />
@@ -136,7 +137,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="ketchup"
           value="Ketchup"
-          onChange={(e) => setSauces([e.target.value])}
+          onClick={(e) => setSauces([e.target.value])}
         />
         <label for="curry">Curry</label>
         <br />
@@ -144,7 +145,7 @@ function BurgerForm(props) {
           type="checkbox"
           name="curry"
           value="Curry"
-          onChange={(e) => setSauces([e.target.value])}
+          onClick={(e) => setSauces([e.target.value])}
         />
       </div>
       <br />
@@ -152,5 +153,118 @@ function BurgerForm(props) {
     </form>
   );
 }
+*/
 
+function BurgerForm(props) {
+  let sauce = [""];
+  const [pain, setPain] = useState("");
+  const [viande, setViande] = useState("");
+  const [salade, setSalade] = useState("");
+  const [tomate, setTomate] = useState("");
+  const [oignon, setOignon] = useState("");
+  const [sauces, setSauces] = useState("Vide");
+  const [checkedState, setCheckedState] = useState(
+    new Array(ingredients.length).fill(false)
+  );
+  const { onSubmit } = props;
+
+  const handleOnChange = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckedState);
+    const Finishedsauces = updatedCheckedState.reduce(
+      (sauce, currentState, index) => {
+        if (currentState === false) {
+          switch (ingredients[index].categorie) {
+            case "salade":
+              setSalade("");
+              break;
+            case "tomate":
+              setTomate("");
+              break;
+            case "oignon":
+              setOignon("");
+              break;
+            default:
+              console.log("aucun changement");
+          }
+        }
+        if (currentState === true) {
+          switch (ingredients[index].categorie) {
+            case "pains":
+              setPain(ingredients[index].name);
+              break;
+            case "viandes":
+              setViande(ingredients[index].name);
+              break;
+            case "salade":
+              setSalade(ingredients[index].name);
+              break;
+            case "tomate":
+              setTomate(ingredients[index].name);
+              break;
+            case "oignon":
+              setOignon(ingredients[index].name);
+              break;
+            case "sauces":
+              if (sauce.length < 2) {
+                setSauces((sauce = [...sauce, " " + ingredients[index].name]));
+              }
+              return sauce;
+            default:
+              console.log("aucun changement");
+          }
+          return sauce;
+        }
+        return sauce;
+      },
+      ""
+    );
+
+    setSauces(Finishedsauces);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit({ pain, viande, salade, tomate, oignon, sauces });
+  };
+
+  return (
+    <div className="App">
+      <h3>Select Toppings</h3>
+      <ul className="toppings-sauce">
+        <form className="add-form" onSubmit={handleSubmit}>
+          {ingredients.map(({ name, categorie, image }, index) => {
+            return (
+              <li key={index}>
+                <div className="toppings-sauce-item">
+                  <div className="left-section">
+                    <input
+                      type="checkbox"
+                      id={`custom-checkbox-${index}`}
+                      name={name}
+                      value={name}
+                      checked={checkedState[index]}
+                      onChange={() => handleOnChange(index)}
+                    />
+                    <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+          <button type="submit">Commander</button>
+        </form>
+        <li>
+          <div className="toppings-sauce-item">
+            <div className="left-section">Total:</div>
+            <div className="right-section">{sauces}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  );
+}
 export default BurgerForm;
