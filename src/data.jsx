@@ -1,6 +1,6 @@
 export const defaultOrder = {
-  bread: "",
-  meat: "",
+  bread: null,
+  meat: null,
   vegetables: [],
   sauces: [],
 };
