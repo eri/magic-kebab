@@ -2,7 +2,7 @@ import * as React from "react";
 import "./index.css";
 
 // Components
-import { Loading } from "./components/Loading";
+// import { Loading } from "./components/Loading";
 import { Navbar } from "./components/Navbar";
 
 // Views
@@ -47,9 +47,9 @@ class App extends React.Component {
 
     return (
       <div className="min-h-screen bg-yellow-25">
-        {/* <Navbar /> */}
-        {/* <ChooseBread order={this.state} /> */}
-        <ChooseMeat order={this.state} />
+        <Navbar />
+        <ChooseBread order={this.state} />
+        {/* <ChooseMeat order={this.state} /> */}
         {/* <ChooseVegetables order={this.state} /> */}
         {/* <ChooseSauces order={this.state} /> */}
       </div>
