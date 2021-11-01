@@ -156,7 +156,6 @@ function BurgerForm(props) {
 */
 
 function KebabForm(props) {
-  let sauce = [""];
   const [pain, setPain] = useState("");
   const [viande, setViande] = useState("");
   const [salade, setSalade] = useState("");
