@@ -1,5 +1,4 @@
 export const defaultOrder = {
-  id: "",
   bread: "",
   meat: "",
   vegetables: [],
