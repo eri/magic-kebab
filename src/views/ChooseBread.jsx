@@ -16,6 +16,7 @@ export class ChooseBread extends React.Component {
 
   onBreadSelection = () => {
     const { bread } = this.state;
+    console.log(bread);
     this.setState({ ...this.state, currentOrder: {...this.state.currentOrder, bread: bread.name }});
   };
 
