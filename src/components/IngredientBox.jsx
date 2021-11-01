@@ -5,8 +5,12 @@ import { buttonClassNames } from "./Button";
 
 export class IngredientBox extends React.Component {
   render() {
-    const { name, image, onSelected } = this.props;
-    const className = [...buttonClassNames, onSelected ? "border-green-500" : "border-red-1000"];
+    const { name, image, onSelected, isDisabled } = this.props;
+    const className = [
+      ...buttonClassNames,
+      onSelected ? "border-green-500" : "border-red-1000",
+      isDisabled ? "cursor-not-allowed" : "cursor-pointer"
+    ];
 
     return (
       <div className={className.join(" ")}>
