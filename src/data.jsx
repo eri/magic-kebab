@@ -8,6 +8,7 @@ export const defaultOrder = {
 export const defaultBreads = [
   { name: "Pain", image: "https://gcdn.pbrd.co/images/CHPZLamyCwSs.png" },
   { name: "Galette", image: "https://gcdn.pbrd.co/images/AE1S51pHMKtD.png" },
+  { name: "Baguette", image: "https://gcdn.pbrd.co/images/95MekreOBKts.png" },
 ];
 
 export const defaultMeats = [
@@ -22,10 +23,10 @@ export const defaultVegetables = [
 ];
 
 export const defaultSauces = [
-  { name: "Blanche", image: "https://gcdn.pbrd.co/images/CHPZLamyCwSs.png" },
-  { name: "Harissa", image: "https://gcdn.pbrd.co/images/AE1S51pHMKtD.png" },
-  { name: "Andalouse", image: "https://gcdn.pbrd.co/images/CHPZLamyCwSs.png" },
-  { name: "Barbecue", image: "https://gcdn.pbrd.co/images/AE1S51pHMKtD.png" },
-  { name: "Ketchup", image: "https://gcdn.pbrd.co/images/CHPZLamyCwSs.png" },
-  { name: "Curry", image: "https://gcdn.pbrd.co/images/AE1S51pHMKtD.png" },
+  { name: "Blanche", image: "https://gcdn.pbrd.co/images/5enfiVpzAAGc.png" },
+  { name: "Harissa", image: "https://gcdn.pbrd.co/images/pXqb9FjQeX2i.png" },
+  { name: "Andalouse", image: "https://gcdn.pbrd.co/images/KXH7YKGOFFFN.png" },
+  { name: "Barbecue", image: "https://gcdn.pbrd.co/images/vEvGmOCCSQ7L.png" },
+  { name: "Ketchup", image: "https://gcdn.pbrd.co/images/BzHEEoEWux3V.png" },
+  { name: "Curry", image: "https://gcdn.pbrd.co/images/94iPvmWSSqmV.png" },
 ];
