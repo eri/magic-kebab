@@ -7,6 +7,9 @@
   <img alt="TailwindCSS" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
 </p>
 
+> [!IMPORTANT]  
+> **This project is archived and now read-only.** Be aware that if you attempt to run this project, it probably won't work.
+
 ## Démo
 * Netlify : [cliquez ici](https://magic-kebab.netlify.app/)
 
